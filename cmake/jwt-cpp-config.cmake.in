@@ -9,4 +9,4 @@ if(USE_EXTERNAL_PICOJSON)
    find_dependency(picojson REQUIRED)
 endif()
 
-include(${CMAKE_INSTALL_PREFIX}/jwt-cpp/jwt-cpp.cmake)
+include(${CMAKE_CURRENT_LIST_DIR}/jwt-cpp.cmake)

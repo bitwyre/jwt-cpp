@@ -8,6 +8,8 @@ option(BUILD_TESTS "Configure CMake to build tests (or not)" ON)
 option(EXTERNAL_PICOJSON "Use find_package() to locate the picojson header" OFF)
 
 project(jwt-cpp)
+include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
+conan_basic_setup()
 
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -41,7 +43,7 @@ set(INCLUDE_INSTALL_DIR include)
 configure_package_config_file(
   ${CMAKE_CURRENT_LIST_DIR}/cmake/jwt-cpp-config.cmake.in
   ${CMAKE_CURRENT_BINARY_DIR}/jwt-cpp-config.cmake INSTALL_DESTINATION
-  ${CMAKE_INSTALL_PREFIX}/jwt-cpp/cmake PATH_VARS INCLUDE_INSTALL_DIR EXTERNAL_PICOJSON)
+  ${CMAKE_INSTALL_PREFIX}/jwt-cpp PATH_VARS INCLUDE_INSTALL_DIR EXTERNAL_PICOJSON)
 
 write_basic_package_version_file(
   ${CMAKE_CURRENT_BINARY_DIR}/jwt-cpp-config-version.cmake
